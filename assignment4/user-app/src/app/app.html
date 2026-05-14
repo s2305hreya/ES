@@ -1,0 +1,15 @@
+<h1>Angular User App</h1>
+
+<button (click)="currentPage='register'">Register</button>
+
+<button (click)="currentPage='login'">Login</button>
+
+<button (click)="currentPage='profile'">Profile</button>
+
+<hr>
+
+<app-register *ngIf="currentPage=='register'"></app-register>
+
+<app-login *ngIf="currentPage=='login'"></app-login>
+
+<app-profile *ngIf="currentPage=='profile'"></app-profile>
