@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <!-- <button class="toggle-btn" id="toggleBtn"></button> -->
+          <h2>College Admin</h2>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#" class="active" onclick="switchTab('dashboard')"><span>Dashboard</span></a>
+          </li>
+          <li>
+            <a href="#" onclick="switchTab('students')"><span>Students</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Faculty</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Courses</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Admissions</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Reports</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Settings</span></a>
+          </li>
+        </ul>
+      </aside>
+        <div class="main-content">
+            <header class="header">
+                <h1>Dashboard Overview</h1>
+                <div class="user-info">
+                    <img src="https://iamvector.com/all-icons/user-admin" alt="" />
+                    <span>Admin User</span>
+                </div>
+            </header>
+            
+            <div class="content" id="dashboard-tab">
+                <div class="stats-grid">
+            <div class="stat-card">
+              <!-- <div class="icon students">👥</div> -->
+              <div class="info">
+                <h3>2,847</h3>
+                <p>Total Students</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <!-- <div class="icon faculty">👨‍🏫</div> -->
+              <div class="info">
+                <h3>156</h3>
+                <p>Faculty Members</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <!-- <div class="icon courses">📚</div> -->
+              <div class="info">
+                <h3>89</h3>
+                <p>Active Courses</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <!-- <div class="icon revenue">💰</div> -->
+              <div class="info">
+                <h3>$2.4M</h3>
+                <p>Annual Revenue</p>
+              </div>
+            </div>
+          </div>
+
+                <div class="chart-grid">
+                    <div class="chart">
+                        <h1></h1>
+                    </div>
+                </div>
+            
+            <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-item">
+              <div class="avatar">P</div>
+              <div class="details">
+                <p>Priya enrolled in Computer Science</p>
+                <small>2 hours ago</small>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="avatar">S</div>
+              <div class="details">
+                <p>Sarah submitted assignment</p>
+                <small>4 hours ago</small>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="avatar">RK</div>
+              <div class="details">
+                <p>Dr. Rajiv Kumar updated course syllabus</p>
+                <small>6 hours ago</small>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="avatar">A</div>
+              <div class="details">
+                <p>Akash graduated</p>
+                <small>1 day ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content" id="students-tab" style="display: none; padding: 20px;">
+          <h2>Students Directory</h2>
+          <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-top: 20px;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 2px solid #eee;">
+                  <th style="padding: 12px; color: #555;">Roll No</th>
+                  <th style="padding: 12px; color: #555;">Name</th>
+                  <th style="padding: 12px; color: #555;">Course</th>
+                  <th style="padding: 12px; color: #555;">Status</th>
+                  <th style="padding: 12px; color: #555;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">CS-2023-01</td>
+                  <td style="padding: 12px;">Priya</td>
+                  <td style="padding: 12px;">Computer Science</td>
+                  <td style="padding: 12px;"><span style="background: #e6f4ea; color: #1e8e3e; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Enrolled</span></td>
+                  <td style="padding: 12px;"><button style="background: #1a73e8; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">View</button></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">MA-2023-14</td>
+                  <td style="padding: 12px;">Sarah</td>
+                  <td style="padding: 12px;">Mathematics</td>
+                  <td style="padding: 12px;"><span style="background: #e6f4ea; color: #1e8e3e; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Enrolled</span></td>
+                  <td style="padding: 12px;"><button style="background: #1a73e8; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+    </div>
+
+    <script>
+      function switchTab(tabId) {
+        document.getElementById('dashboard-tab').style.display = tabId === 'dashboard' ? 'block' : 'none';
+        document.getElementById('students-tab').style.display = tabId === 'students' ? 'block' : 'none';
+        
+        // Update active class on sidebar links
+        const links = document.querySelectorAll('.sidebar-menu a');
+        links.forEach(link => link.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+      }
+    </script>
+</body>
+</html>
