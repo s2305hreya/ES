@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+
+    <h2>User Registration</h2>
+
+    <form id="myForm">
+        Name:
+        <input type="text" id="name" required><br><br>
+
+        Email:
+        <input type="email" id="email" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            let user = {
+                name: name,
+                email: email
+            };
+
+            // Get old data
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Push new data
+            users.push(user);
+
+            // Store again
+            localStorage.setItem("users", JSON.stringify(users));
+
+            // AJAX POST method
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Registration Successful");
+                window.location.href = "display.html";
+            });
+
+        });
+    </script>
+
+</body>
+</html>
